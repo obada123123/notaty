@@ -4,6 +4,10 @@ function updateNotesTable(noteid, title) {
     while (--tabelCount)
         table.deleteRow(tabelCount)
     getNote(title).then((data) => {
+        if (!Array.isArray(data)) {
+            console.error("Server error:", data.message || data.error || data);
+            return;
+        }
         data.forEach(note => {
             let row = table.insertRow(1);
             if (noteid == note["_id"]) {

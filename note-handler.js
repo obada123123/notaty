@@ -9,8 +9,8 @@ function updateNotesTable(noteid, title) {
             if (noteid == note["_id"]) {
                 row.setAttribute("style", "animation: new-row 1s ease-in-out;")
             }
-            row.insertCell(0).innerHTML = note["title"]
-            row.insertCell(1).innerHTML = note["content"]
+            row.insertCell(0).innerText = note["title"]
+            row.insertCell(1).innerText = note["content"]
             row.insertCell(2).innerHTML = note["updateDate"]
             row.insertCell(3).innerHTML = `<a href="#" onclick="openEditModal('${note["_id"]}')"><img src="./images/edit.png" alt="edit" width="25px "></a>
                                             <a href="#" onclick="confirmDeleteNote('${note["_id"]}')"><img src="./images/delete.png" alt="delete" width="25px "></a>`
